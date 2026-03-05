@@ -15,6 +15,6 @@ class UserModel extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = ['level_id', 'username', 'nama'];
+    protected $fillable = ['level_id', 'username', 'nama']; //tanpa password jadinya error
     
 }
