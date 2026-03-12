@@ -10,13 +10,12 @@ use Illuminate\Support\Facades\Hash;
 class UserController extends Controller {
     public function index()
     {
-    // $data = [
-    //     'username' => 'customer-1',
-    //     'nama' => 'Pelanggan',
-    //     'password' => Hash::make('12345'),
-    //     'level_id' => 4
-    // ];  
-    // UserModel::insert($data);
+    $data = [
+        'level_id' => 2,
+        'username' => 'Aditiasmr',
+        'nama' => 'Adid2',
+    ];  
+    UserModel::create($data);
 
     // $user = UserModel::all();
     // return view('user', ['data' => $user]);
@@ -122,8 +121,11 @@ class UserController extends Controller {
     // $user->wasChanged('nama');
     // dd($user->wasChanged(['nama', 'username']));
 
-    $user = UserModel::all();
+    // $user = UserModel::all();
+    
+    $user = UserModel::with('level')->get();
     return view('user', ['data' => $user]);
+    // dd($user);
     }
 
     public function tambah()
